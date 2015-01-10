@@ -12,7 +12,7 @@ var cube_options = {
     z : 0
   },
   x : 0,
-  y : 12,
+  y : .5,
   z : 0
 }
 
@@ -37,7 +37,46 @@ function cube(args){
     var rgb =  'rgb(' + (Math.floor(Math.random() * 255)-150) + ',' + (Math.floor(Math.random() * 255)-150) + ',' + (Math.floor(Math.random() * 255)-150) + ')';
     return rgb + '';
   }
+
+var smallerAudio = {};
+function readyToPlayback(audioData){
+  
+  var curr = 0;
+  for(i in audioData.data){
+
+    if(i % 60 == 0){
+      curr++;
+    }
+    
+    if(!smallerAudio[curr]){
+      smallerAudio[curr] = [audioData.data[i]]
+    }
+    else{
+      smallerAudio[curr].push(audioData.data[i]);
+    }
+  }
+  playBack(smallerAudio);
+}
+
 var cubes_count = 0;
+
+function playBack(smallerAudio){
+var row = 0;
+var cube_count = 0;
+  for (var i = 0; i < 60; i++) {
+    row = i;
+    for(var j in smallerAudio[1][i]){
+      cube_count++;
+      cube_options.z = - row * 1.1;
+      cube_options.x = - 17 + j * 1.1;
+      cube_options.y_height = smallerAudio[1][i][j] * .25;
+
+      cubes.add(cube(cube_options));
+    }   
+  };
+}
+/*
+
 for(var j = 0;j<20;j++){
 
   for (var i=1;i<=10;i++) {
@@ -59,5 +98,6 @@ for(var j = 0;j<20;j++){
   }
 
 }
+*/
 
 scene.add(cubes);

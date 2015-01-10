@@ -1,13 +1,11 @@
 
 var update	= function(){
 
-	for (var i = 0, len = cubes_count; i < len; i++) {
+	for (var i = 0, len = cubes.children[i].length; i < len; i++) {
 		console.log(i);
 		cubes.children[i].rotation.y += 0.1;
 	}
 }
-
-console.log(data);
 	// remove previous tweens if needed	TWEEN.removeAll();	
 
 // convert the string from dat-gui into tween.js functions 

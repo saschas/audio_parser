@@ -32,7 +32,7 @@
 //////////////////////////////////////////
     var renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize( window.innerWidth, window.innerHeight );
-        renderer.setClearColor( 0xcccccc, 0 );
+        renderer.setClearColor( 0x242424, 0 );
         renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
         renderer.shadowMapEnabled = true;
@@ -41,7 +41,7 @@
 
         renderer.shadowMapBias = 0.1;
         renderer.shadowMapDarkness = 0.5;
-
+    document.body.appendChild( renderer.domElement );
 //////////////////////////////////////////
     //   Controls
 //////////////////////////////////////////

@@ -29,4 +29,4 @@ function grid(args){
   }
 
   group_grid.add(grid(grid_options));
-scene.add(group_grid);
+//scene.add(group_grid);

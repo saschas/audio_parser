@@ -1,4 +1,5 @@
 jQuery(document).ready(function($){//////////////////////
+
 // Player Settings
 /////////////////////
 var $player = $("#player");
@@ -23,7 +24,6 @@ $play_button.bind({
 //////////////////
 /////	Toggle Play
 //////////////////
-    $player_src.currentTime = 0;
 		if($player_src.paused){
 			$(this).removeClass('off').addClass('on');
 			$player_src.play();
@@ -58,7 +58,6 @@ $player.on({
     
 	}
 });
-
 
 });
 
