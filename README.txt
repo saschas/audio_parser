@@ -1,3 +1,4 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/SaschaSigl/pen/myPeKV.
+in production - audio parser and three.js visualizer
+
 
  
