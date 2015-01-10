@@ -1,14 +1,26 @@
 <p>//// IMPORTS</p>
 
+<h1>util_options</h1>
+
+<pre><code>MATH_ROT
+    MATH_ROT * 'deg'
+    Corrects the rotation in 3d Space
+</code></pre>
+
 <h1>user_options</h1>
 
 <h1>requestAnimationFrame</h1>
+
+<h1>loadAudio</h1>
+
+<pre><code>loads the audio JSON Object and kick of the animation
+</code></pre>
 
 <h1>three_setup</h1>
 
 <pre><code>stats
 camera
-scene // Maybe change later
+scene // Definitly change later for multiple Scenes
 renderer
 controls
 </code></pre>
@@ -23,6 +35,57 @@ controls
 <pre><code>All lights in the scene
 </code></pre>
 
+<h1>add scene files</h1>
+
+<pre><code>_floor.js
+    Floor of scene
+_cubes.js
+    first 60 Data Sets of Audio Data render to cubeMap
+_grid.js
+    for later use
+</code></pre>
+
+<h1>Audio Controls</h1>
+
+<p>_player.js</p>
+
 <h1>index</h1>
 
+<pre><code>init();
+</code></pre>
+
 <h1>resize</h1>
+
+<pre><code>update projectionMatrix
+</code></pre>
+
+<h1>render</h1>
+
+<pre><code>the render loop 
+stats
+loop
+controls
+TWEEN.update
+</code></pre>
+
+<h1>ToDo</h1>
+
+<ul>
+<li>Prepare render pipeline for multiple Scenes
+
+<ul>
+<li>Goal: createScene([timecode]);
+
+<ul>
+<li>Recognize real Audio currentTime</li>
+<li>create new Scene</li>
+<li>Import Obj in new scene</li>
+<li>Add scene to renderer</li>
+<li>Remove old scene after next scene is current</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Process AudioData in consumable chunks and make prediction when to load next files for playing smoothly</li>
+</ul>
+
