@@ -1,10 +1,12 @@
 
 var update	= function(){
-
-	for (var i = 0, len = cubes.children[i].length; i < len; i++) {
+	//group.children[$player_info.currentTime].material = new THREE.MeshBasicMaterial();
+	//	group.position.z = $player_info.currentTime;
+	//animated_Objects[0].position.z += 1;
+	/*for (var i = 0, len = cubes.children[i].length; i < len; i++) {
 		console.log(i);
-		cubes.children[i].rotation.y += 0.1;
-	}
+	//	cubes.children[i].rotation.y += 0.1;
+	}*/
 }
 	// remove previous tweens if needed	TWEEN.removeAll();	
 
@@ -43,7 +45,7 @@ var tweenBack	= new TWEEN.Tween(current)
 // start the first
 
 
+
+//tweenHead.start();
 jump_In.start();
 jump_In.chain(jump_In);
-//tweenHead.start();
-

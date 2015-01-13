@@ -1,9 +1,11 @@
 /////////////////////////////////////////////////////
 ////  Light
 ////////////////////////////////////////////////////
-var spotLight = new THREE.SpotLight( 0xffffff);
-    spotLight.position.set( 0, 100, 0 );
-    spotLight.intensity = 5;
+var spotLight = new THREE.SpotLight( 0xeeeeee);
+
+    spotLight.position.set( 50, 200, 50 );
+
+    spotLight.intensity = 2;
     spotLight.castShadow = true;
 
     spotLight.target.position.set(0, 0, 0 );

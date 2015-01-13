@@ -26,7 +26,6 @@ var onScreen = [];
 var $player = $("#player");
 var $player_src = $player.get(0);
 		$player_src.round_duration = Math.round($player_src.duration);
-	
 	// Mute Audio
 	//	$player_src.muted = true;
 

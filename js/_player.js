@@ -5,7 +5,10 @@ jQuery(document).ready(function($){//////////////////////
 var $player = $("#player");
 var $player_src = $player.get(0);
 	$player_src.round_duration = Math.round($player_src.duration);
-	
+var $player_info = {
+	duration : $player_src.round_duration,
+	currentTime : 0
+}
 	// Mute Audio
 	//	$player_src.muted = true;
 
@@ -38,12 +41,15 @@ $play_button.bind({
 });
 
 
+
 $player.on({
 	canplay : function(event) {
 		
 	},
 	timeupdate: function(event){
-
+		$player_info.currentTime = Math.round(this.currentTime)
+		// group.children[$player_info.currentTime].material = new THREE.MeshBasicMaterial();
+		// group.position.z = $player_info.currentTime;
 	},
 	play: function(event){
       	//init();
