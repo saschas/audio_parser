@@ -14,8 +14,8 @@ var update	= function(){
 			for(var j=0;j<2;j++){
 				//particles.colors.push(new THREE.Color(Math.random(), 1.0, 0.5 ));
 				$seat++;
-				console.log(particleSystem.geometry.colors[$seat]);
-				particleSystem.geometry.colors[$seat].setHex(0,0,0);
+			//	console.log(particleSystem.geometry.colors[$seat]);
+				particleSystem.geometry.colors[$seat].set(new THREE.Color("rgba(255,0,0,1)"));
 				particleSystem.geometry.colorsNeedUpdate = true;
 			}
 		}

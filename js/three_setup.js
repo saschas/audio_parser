@@ -13,7 +13,7 @@
   
     // revolutions per second
     var scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2( 0xffffff, 0.005 );
+        scene.fog = new THREE.FogExp2( 0x000000, 0.005 );
 //////////////////////////////////////////
     //   Camera
 //////////////////////////////////////////
@@ -32,7 +32,7 @@
 //////////////////////////////////////////
     var renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize( window.innerWidth, window.innerHeight );
-        renderer.setClearColor( 0xffffff, 0 );
+        renderer.setClearColor( 0x000000, 0 );
         renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
         renderer.shadowMapEnabled = true;

@@ -93,23 +93,17 @@ var $last = 0;
                 pZ = - (particle_options.size* cube_row),
                 particle = new THREE.Vector3(pX, pY, pZ);
 
-            //colors.push(new THREE.Color());
-            //colors[colors.length-1].setHSL( );
-            // add it to the geometry
             particles.vertices.push(particle);
             particles.colors.push(new THREE.Color(Math.random(), 1.0, 0.5 ));
           }//end of if
           
         }
-    }//end of chunk
-    
-
-    
+    }//end of chunk    
   }
   // create the particle system
     particleSystem = new THREE.PointCloud(particles,pMaterial);
     //particleSystem.sortParticles = true;
-console.log(particleSystem);
+console.log('particles ready! Click Play!');
 particleSystem.receiveShadow = true;
 particleSystem.castShadow = true;
 // add it to the scene
