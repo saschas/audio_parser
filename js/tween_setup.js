@@ -1,12 +1,25 @@
-
+var $row = 0;
+var $seat = 0;
 var update	= function(){
-	//group.children[$player_info.currentTime].material = new THREE.MeshBasicMaterial();
-	//	group.position.z = $player_info.currentTime;
-	//animated_Objects[0].position.z += 1;
-	/*for (var i = 0, len = cubes.children[i].length; i < len; i++) {
-		console.log(i);
-	//	cubes.children[i].rotation.y += 0.1;
-	}*/
+
+	//global speed
+	$row++;
+
+	particleSystem.position.z = $row;
+
+
+	for(var i=0;i<32;i++){
+		if(audioData.data[$row][i] > particle_options.threshold){
+			//wenn größer null und auf beiden seiten :/
+			for(var j=0;j<2;j++){
+				//particles.colors.push(new THREE.Color(Math.random(), 1.0, 0.5 ));
+				$seat++;
+				console.log(particleSystem.geometry.colors[$seat]);
+				particleSystem.geometry.colors[$seat].setHex(0,0,0);
+				particleSystem.geometry.colorsNeedUpdate = true;
+			}
+		}
+	}
 }
 	// remove previous tweens if needed	TWEEN.removeAll();	
 
@@ -19,32 +32,6 @@ var jump_In = new TWEEN.Tween()
 	.delay(userOpts.delay)
 	.easing(easing)
 	.onUpdate(update);
-
-/*
-var tweenHead	= new TWEEN.Tween(current)
-	.to({x: +userOpts.range}, userOpts.duration)
-	.delay(userOpts.delay)
-	.easing(easing)
-	.onUpdate(update);
-
-// build the tween to go backward
-var tweenBack	= new TWEEN.Tween(current)
-	.to({
-		x: - userOpts.range,
-		y: userOpts.range
-	}, userOpts.duration)
-	.delay(userOpts.delay)
-	.easing(easing)
-	.onUpdate(update);
-*/
-//jump_In.chain(tweenHead);
-// after tweenHead do tweenBack
-//tweenHead.chain(tweenBack);
-// after tweenBack do tweenHead, so it is cycling
-//tweenBack.chain(tweenHead);
-// start the first
-
-
 
 //tweenHead.start();
 jump_In.start();

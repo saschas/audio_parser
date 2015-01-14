@@ -7,12 +7,12 @@ var userOpts	= {
 	easing		: 'Elastic.EaseInOut',
 	camera : {
         x : 0,
-        y : 20,
-        z : 150,
+        y : 10,
+        z : 50,
         target : {
         	x : 0,
-		    y : 20,
-        	z : 0,
+		    y : 10,
+        	z : -50,
         }
     },
 

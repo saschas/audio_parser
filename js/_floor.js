@@ -14,7 +14,7 @@ var plane_options = {
 
 
 var plane_geometry = new THREE.PlaneGeometry( plane_options.width, plane_options.height, 32 );
-var plane_material = new THREE.MeshLambertMaterial({color: 0xcccccc, side: THREE.DoubleSide}); 
+var plane_material = new THREE.MeshPhongMaterial({color: 0xffffff, side: THREE.DoubleSide}); 
 var plane = new THREE.Mesh( plane_geometry, plane_material ); 
 	plane.rotation.x = MATH_ROT;
 	plane.position.x = plane_options.position.x;

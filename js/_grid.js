@@ -1,14 +1,5 @@
 var group_grid = new THREE.Object3D();
 
-var grid_options = {
-  x_height : .5,
-  y_height : 12.5,
-  z_height : .5,
-  x : 0,
-  y : 5,
-  z : 0
-}
-
 function grid(args){
     var box_geometry = new THREE.BoxGeometry( args.x_height, args.y_height , args.z_height );
     var box_material = new THREE.MeshLambertMaterial({color : 0xff0000});
@@ -22,11 +13,30 @@ function grid(args){
     return line;
   }
 
-
-  function color(){ 
-    var rgb =  'rgb(' + (Math.floor(Math.random() * 255)-150) + ',' + (Math.floor(Math.random() * 255)-150) + ',' + (Math.floor(Math.random() * 255)-150) + ')';
-    return rgb + '';
+var $abstand = 0.5;
+for(var i=0;i<32;i++){
+  var grid_options = {
+    x_height : .5,
+    y_height : 1,
+    z_height : .3,
+    x : i * $abstand,
+    y : -.25,
+    z : 0
   }
-
   group_grid.add(grid(grid_options));
-//scene.add(group_grid);
+}
+for(var i=0;i<32;i++){
+  var grid_options = {
+    x_height : .5,
+    y_height : 1,
+    z_height : .3,
+    x : -i * $abstand,
+    y : -.25,
+    z : 0
+  }
+  group_grid.add(grid(grid_options));
+}
+
+group_grid.receiveShadow = true;
+group_grid.castShadow = true;
+scene.add(group_grid);

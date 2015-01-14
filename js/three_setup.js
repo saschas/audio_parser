@@ -13,7 +13,7 @@
   
     // revolutions per second
     var scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2( 0xcccccc, 0.005 );
+        scene.fog = new THREE.FogExp2( 0xffffff, 0.005 );
 //////////////////////////////////////////
     //   Camera
 //////////////////////////////////////////
@@ -32,7 +32,7 @@
 //////////////////////////////////////////
     var renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize( window.innerWidth, window.innerHeight );
-        renderer.setClearColor( 0xcccccc, 0 );
+        renderer.setClearColor( 0xffffff, 0 );
         renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
         renderer.shadowMapEnabled = true;
@@ -48,5 +48,6 @@
     var controls = new THREE.OrbitControls( camera );
         controls.rotateSpeed = 0.1;
         controls.keyPanSpeed = 0.001;
-
-    controls.maxPolarAngle = Math.PI/2; 
+        controls.maxPolarAngle = Math.PI/2;
+        controls.center = new THREE.Vector3(userOpts.camera.target.x,userOpts.camera.target.y,userOpts.camera.target.z);
+        console.log( )

@@ -9,8 +9,7 @@ var $player_info = {
 	duration : $player_src.round_duration,
 	currentTime : 0
 }
-	// Mute Audio
-	//	$player_src.muted = true;
+
 
 //////////////////////
 // Timeline
@@ -30,12 +29,13 @@ $play_button.bind({
 		if($player_src.paused){
 			$(this).removeClass('off').addClass('on');
 			$player_src.play();
+			
 			init();
 		}
 		else{
 			$(this).removeClass('on').addClass('off');
 			$player_src.pause();
-			cancelAnimationFrame($loop);
+			// cancelAnimationFrame($loop);
 		}
 	}
 });
@@ -58,7 +58,7 @@ $player.on({
 	    //init();
 	},
 	pause : function(event){
-		cancelAnimationFrame($loop);
+		// cancelAnimationFrame($loop);
 	},
 	ended : function(event){
     

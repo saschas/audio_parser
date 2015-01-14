@@ -1,7 +1,7 @@
 var cube_options = {
-  x_height : 2,
+  x_height : 1,
   y_height : 0.5,
-  z_height : 4,
+  z_height : 1,
   rotation: {
     x : 0,
     y : 0,
@@ -26,21 +26,9 @@ var total;
 var row = 0;
 function readyToPlayback(audioData){
 
-  // Cuts the audioData into smaller chunks
-  var $stripes = stripe(10,audioData.data);
 
   cube_options.length  = audioData.data.length;
-  
-  for(var i = 0;i<$stripes.length;i++){
-    var $stripe_mesh = playBack(i,$stripes[i]);
-    // console.log($stripe_mesh);
-        total = new THREE.Mesh($stripe_mesh,cube_material);
-        total.castShadow = true;
-        total.receiveShadow = true;
-        total.position.z = i * -4.95;
-    group.add(total);
-  }
-  scene.add(group);
+  playBack(audioData.data);
 }
 
 // Slice function for the data
@@ -56,50 +44,55 @@ function stripe(count,data){
   return stripeArray;
 }
 
-function single_cube(cube_options){
-  var box_geometry = new THREE.BoxGeometry( cube_options.x_height, cube_options.y_height , cube_options.z_height );
-  var cube = new THREE.Mesh( box_geometry, box_material );
-      cube.position.x = -cube_options.x_height;
-      cube.position.z = -cube_options.z_height;
-      cube.scale.y = realsource[i][j];        
-      cube.updateMatrix();
-  return cube;
-}
-
-
 function calculatePercentage(curr){
 
-  var percentage = curr  * 100 / 12865;
+  var percentage = curr  * 100 / 825;
   console.log('max = ' +12865,'curr = ' + curr, percentage);
 };
 
-function playBack(row,realsource){
+function playBack(realsource){
+
+  // Cuts the audioData into smaller chunks
+  var chunklength = 1;
+  var $stripes = stripe(chunklength,realsource);
+  var $max =  10;//$stripes.length; //83
   var cubes_geometry = new THREE.Geometry();
   var box_material = new THREE.MeshPhongMaterial($phongMaterialOptions);
   var cube_count = 0;
-    //Stripes to load //16
-    var $max = realsource.length;
-    
-    for (var i = 0;i < $max; i++) {
-      for(var j = 0;j < 32; j++){
+  var cube_row = 0;
 
-        calculatePercentage(row * j * i);
-        if( realsource[i][j] < 0.1){
-          //return false; // realsource[i][j] = 0.1;
+  var box_geometry = new THREE.BoxGeometry( cube_options.x_height, cube_options.y_height , cube_options.z_height );
+  var cube = new THREE.Mesh( box_geometry, box_material );
+          
+  for(var i = 0;i < $max;i++){ // for all stripes to load // 83
+    for (var chunk = 0;chunk < $stripes[i].length; chunk++) { // for chunklength // 10
+      for(var single = 0;single <= 32; single++){ //length 32 realworld data
+        if(single == 0){
+          cube_row++;
+          calculatePercentage(cube_row);
         }
-        else{
-           
-        var box_geometry = new THREE.BoxGeometry( cube_options.x_height, cube_options.y_height , cube_options.z_height );
-        var cube = new THREE.Mesh( box_geometry, box_material );            
-            cube.position.x = -j * 1.5;
-            cube.scale.y = realsource[i][j] * 0.05;   
-            cube.position.z = -cube_options.z_height * 1.1 * i;          
-                 
-            cube.updateMatrix();
-            cubes_geometry.merge(cube.geometry,cube.matrix);
+        if($stripes[i][chunk][single] > 0){
+          //console.log(cube_count +=2);
+            cube.position.z = - (cube_options.z_height* cube_row); // row
+            //console.log(cube.position.z);
+            cube.position.x = single*cube_options.x_height * 1.1;
+            cube.scale.y = $stripes[i][chunk][single] * .5;
+          cube.updateMatrix();
+          cubes_geometry.merge(cube.geometry,cube.matrix);
+            cube.position.x = - single*cube_options.x_height * 1.1;
+          cube.updateMatrix();
+          cubes_geometry.merge(cube.geometry,cube.matrix);
         }
       }
-    }
-    return cubes_geometry;
+    }//end of chunk
+    
+    
   }
+  total = new THREE.Mesh(cubes_geometry,cube_material);
+  total.castShadow = true;
+  total.receiveShadow = true;
+  scene.add(total);
+}
+
+
 

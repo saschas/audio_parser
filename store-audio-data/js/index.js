@@ -87,15 +87,9 @@ $player.on({
 //////////////////////////////////////////////////////
 	timeupdate: function(event){		
 		//	on each timeupdate the analyser collects realtimeData 
-		analyser.getByteFrequencyData(realtimeData);
-    var $transform_audioData = [];
-    for(var i=0;i< realtimeData.length;i++){
-      $transform_audioData.push(realtimeData[i]);
-    }
-		
-		$audioData.push($transform_audioData);    
 	},
 	play: function(){
+		$loop = render();
 		console.log('Wait for the data to be processed...');
 	},
 	pause : function(){
