@@ -201,6 +201,28 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/_menu.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/_menu.js",
+		"outputAbbreviatedPath": "\/js\/min\/_menu-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/_new_obj.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/_new_obj.js",
+		"outputAbbreviatedPath": "\/js\/min\/_new_obj-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/js\/_particles.js": {
 		"fileType": 64,
 		"ignore": 1,
@@ -558,44 +580,56 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/lights.js",
+			"linkedFileAbbreviatedPath": "\/js\/_menu.js",
 			"position": 6,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/_floor.js",
+			"linkedFileAbbreviatedPath": "\/js\/lights.js",
 			"position": 7,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/_particles.js",
+			"linkedFileAbbreviatedPath": "\/js\/_floor.js",
 			"position": 8,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/_player.js",
+			"linkedFileAbbreviatedPath": "\/js\/_particles.js",
 			"position": 9,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/index.js",
+			"linkedFileAbbreviatedPath": "\/js\/_new_obj.js",
 			"position": 10,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/resize.js",
+			"linkedFileAbbreviatedPath": "\/js\/_player.js",
 			"position": 11,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/render.js",
+			"linkedFileAbbreviatedPath": "\/js\/index.js",
 			"position": 12,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/resize.js",
+			"position": 13,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/render.js",
+			"position": 14,
 			"type": 0
 			}
 		],

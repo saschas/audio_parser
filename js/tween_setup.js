@@ -4,22 +4,22 @@ var update	= function(){
 
 	//global speed
 	$row++;
-
+	custom_element.update();
 	particleSystem.position.z = $row;
 
-
-	for(var i=0;i<32;i++){
-		if(audioData.data[$row][i] > particle_options.threshold){
-			//wenn größer null und auf beiden seiten :/
-			for(var j=0;j<2;j++){
-				//particles.colors.push(new THREE.Color(Math.random(), 1.0, 0.5 ));
-				$seat++;
-			//	console.log(particleSystem.geometry.colors[$seat]);
-				particleSystem.geometry.colors[$seat].set(new THREE.Color("rgba(255,0,0,1)"));
-				particleSystem.geometry.colorsNeedUpdate = true;
+		for(var i=0;i<32;i++){
+			if(audioData.data[$row][i] > particle_options.threshold){
+				//wenn größer null und auf beiden seiten :/
+				for(var j=0;j<2;j++){
+					//particles.colors.push(new THREE.Color(Math.random(), 1.0, 0.5 ));
+					$seat++;
+					console.log($seat);
+				//	console.log(particleSystem.geometry.colors[$seat]);
+					particleSystem.geometry.colors[$seat].set(new THREE.Color("rgba(255,0,0,1)"));
+					particleSystem.geometry.colorsNeedUpdate = true;
+				}
 			}
 		}
-	}
 }
 	// remove previous tweens if needed	TWEEN.removeAll();	
 

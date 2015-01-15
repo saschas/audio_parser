@@ -11,6 +11,8 @@ var $player_info = {
 }
 
 
+
+
 //////////////////////
 // Timeline
 /////////////////////
@@ -40,14 +42,21 @@ $play_button.bind({
 	}
 });
 
+// duration = 100;
+// current = x
 
-
+function calculateTimeline(curr){
+	var percentage = Math.round(curr.currentTime * 100 / curr.duration);
+	var height = (window.innerHeight-100) * percentage / 100;
+	return height;
+}
 $player.on({
 	canplay : function(event) {
 		
 	},
 	timeupdate: function(event){
 		$player_info.currentTime = Math.round(this.currentTime)
+		$timeline.height(calculateTimeline($player_info))
 		// group.children[$player_info.currentTime].material = new THREE.MeshBasicMaterial();
 		// group.position.z = $player_info.currentTime;
 	},

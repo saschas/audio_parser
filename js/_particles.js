@@ -40,8 +40,7 @@ function stripe(count,data){
 }
 
 function calculatePercentage(curr){
-
-  var percentage = curr  * 100 / 27022;
+  var percentage = curr  * 100 / audioData.data.length;
   return percentage.toFixed(0);
 };
 
@@ -51,6 +50,7 @@ function playBack(realsource){
   // Cuts the audioData into smaller chunks
   var chunklength = 1;
   var $stripes = stripe(chunklength,realsource);
+  console.log('$stripes', $stripes)
   var $max = $stripes.length; //83
   var cube_row = 0;
 
@@ -83,31 +83,33 @@ var $last = 0;
             //console.log(randomX);
             var pX = single * particle_options.size * 0.5,
                 pY = $stripes[i][chunk][single] * particle_options.factor,
-                pZ = - (particle_options.size* cube_row),
+                pZ = - (particle_options.size * cube_row),
                 particle = new THREE.Vector3(pX, pY, pZ);
 
             // add it to the geometry
             particles.vertices.push(particle);
             var pX = -single * particle_options.size * 0.5,
                 pY = $stripes[i][chunk][single] *  particle_options.factor,
-                pZ = - (particle_options.size* cube_row),
+                pZ = - (particle_options.size * cube_row),
                 particle = new THREE.Vector3(pX, pY, pZ);
 
             particles.vertices.push(particle);
-            particles.colors.push(new THREE.Color(Math.random(), 1.0, 0.5 ));
+            
           }//end of if
-          
+          particles.colors.push(new THREE.Color(Math.random(), 1.0, 0.5 ));
         }
     }//end of chunk    
   }
   // create the particle system
     particleSystem = new THREE.PointCloud(particles,pMaterial);
     //particleSystem.sortParticles = true;
-console.log('particles ready! Click Play!');
-particleSystem.receiveShadow = true;
-particleSystem.castShadow = true;
-// add it to the scene
-scene.add(particleSystem);
+    console.log('particles ready! Click Play!');
+    particleSystem.receiveShadow = true;
+    particleSystem.castShadow = true;
+    // add it to the scene
+console.log(particleSystem.geometry.vertices.length / 2);
+    scene.add(particleSystem);
+
 }
 
 
