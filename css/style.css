@@ -39,6 +39,20 @@ div#stats {
   z-index: 9999;
   position: fixed !important; }
 
+.controls-menu {
+  background: #fff;
+  width: 100px;
+  bottom: 0;
+  left: 50px;
+  position: absolute;
+  line-height: 25px;
+  text-align: center;
+  cursor: pointer; }
+
+.controls-menu > div:hover {
+  background: tomato;
+  color: #fff; }
+
 .play {
   height: 50px;
   width: 50px;

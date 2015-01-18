@@ -2,12 +2,12 @@
     //   Three.js
 //////////////////////////////////////////
     var stats = new Stats();
-    stats.setMode(0); // 0: fps, 1: ms
+        stats.setMode(0); // 0: fps, 1: ms
 
-    // align top-left
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.right= '0px';
-    stats.domElement.style.top = '0px';
+        // align top-left
+        stats.domElement.style.position = 'absolute';
+        stats.domElement.style.right= '0px';
+        stats.domElement.style.top = '0px';
 
     document.body.appendChild( stats.domElement );
   
@@ -19,14 +19,15 @@
 //////////////////////////////////////////
 
     var camera = new THREE.PerspectiveCamera( 35, window.innerWidth/window.innerHeight, 0.5, 1000 );
-        camera.position.set(userOpts.camera.x,userOpts.camera.y,userOpts.camera.z)
-        camera.lookAt(new THREE.Vector3(userOpts.camera.target.x,userOpts.camera.target.y,userOpts.camera.target.z));
         camera.minDistance = 0;
         camera.maxDistance = Infinity;
-
+        camera.rotation.z = Math.sin(camera.rotation.y)/3.5;
         camera.minPolarAngle = 0; // radians
         camera.maxPolarAngle = Math.PI; // radians
-
+       
+        camera.position.set(userOpts.camera.x,userOpts.camera.y,userOpts.camera.z);
+        camera.lookAt(new THREE.Vector3(userOpts.camera.target.x,userOpts.camera.target.y,userOpts.camera.target.z));
+        
 //////////////////////////////////////////
     //   Renderer
 //////////////////////////////////////////
@@ -45,9 +46,13 @@
 //////////////////////////////////////////
     //   Controls
 //////////////////////////////////////////
-    var controls = new THREE.OrbitControls( camera );
-        controls.rotateSpeed = 0.1;
-        controls.keyPanSpeed = 0.001;
-        controls.maxPolarAngle = Math.PI/2;
-        controls.center = new THREE.Vector3(userOpts.camera.target.x,userOpts.camera.target.y,userOpts.camera.target.z);
-        console.log( )
+    
+    /*var controls = new THREE.FlyControls( camera )
+    //attaches fly controls to the camera
+                controls = new THREE.FlyControls( camera );
+                //camera control properties
+                controls.movementSpeed = 1;
+                controls.domElement = renderer.domElement;
+                controls.rollSpeed = 0.01;
+                controls.autoForward = false;
+                controls.dragToLook = true;;*/

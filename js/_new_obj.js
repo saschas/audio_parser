@@ -1,5 +1,3 @@
-
-
 function new_group(start,end){
 	var that = this;
 	that.options = {
@@ -87,5 +85,5 @@ function new_group(start,end){
 
 var obj = new new_group(100,200); // new_group.build.init(10);
 var custom_element = obj.init(10);
-		scene.add(custom_element);
+	scene.add(custom_element);
 //scene.add(obj);

@@ -4,18 +4,20 @@
 
 var audioData = {}
 
-var data = $.ajax({
+$.ajax({
   dataType: "json",
   url: "js/audioData_4.json",
-  data:function(data){
-  	//return data;
-  },
   success: function(data){
 
 	userOpts.ready = true;
-	//var obj = $.parseJSON(data.responseText);
-  audioData.data = data;
-    readyToPlayback(audioData);
+
+  å.store_data(data);
+  
+  loading_stack(å); 
+    // this function runs if data is ready to playback
+    // this function has to do the following:
+    //  1. split data array in consumable chunks
+    //  2. call a function with argument array[chunk,chunk,...]
   }
 });
 

@@ -7,11 +7,11 @@ var particles = new THREE.Geometry(),
       /*,
       transparent : true,opacity: 0.7,*/
       vertexColors: THREE.VertexColors,
-      size: 1.5
-      /*,
+      size: 1
+      ,
       map : THREE.ImageUtils.loadTexture(
-        "./assets/img/bars.png"
-      )*/
+        "./assets/img/stars.png"
+      )
     }),
     particle_options = {
       size : 1,
@@ -58,8 +58,7 @@ function playBack(realsource){
 var colors = [];
  $playback_info.max = $max;
 
-    // random color
-    
+
 /**/
 // material
 var $last = 0;
@@ -79,12 +78,15 @@ var $last = 0;
         if($stripes[i][chunk][single] > particle_options.threshold){
           // create a particle with random
           // position values, -250 -> 250
+//
+            //console.log(randomX);          
 
-            //console.log(randomX);
             var pX = single * particle_options.size * 0.5,
                 pY = $stripes[i][chunk][single] * particle_options.factor,
                 pZ = - (particle_options.size * cube_row),
                 particle = new THREE.Vector3(pX, pY, pZ);
+
+              
 
             // add it to the geometry
             particles.vertices.push(particle);
@@ -94,12 +96,14 @@ var $last = 0;
                 particle = new THREE.Vector3(pX, pY, pZ);
 
             particles.vertices.push(particle);
-            
+           
           }//end of if
           particles.colors.push(new THREE.Color(Math.random(), 1.0, 0.5 ));
-        }
+        
+      }
     }//end of chunk    
   }
+ 
   // create the particle system
     particleSystem = new THREE.PointCloud(particles,pMaterial);
     //particleSystem.sortParticles = true;
@@ -109,7 +113,6 @@ var $last = 0;
     // add it to the scene
 console.log(particleSystem.geometry.vertices.length / 2);
     scene.add(particleSystem);
-
 }
 
 

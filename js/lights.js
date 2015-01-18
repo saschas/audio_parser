@@ -24,7 +24,7 @@ var spotLight = new THREE.SpotLight( 0xeeeeee);
 /////////////////
 var sunLight = new THREE.SpotLight( 0xffffff);
     sunLight.position.set( 0,1000,0 );
-    sunLight.intensity = .1;
+    sunLight.intensity = .4;
     scene.add( sunLight );
 
 //////////////////
@@ -46,7 +46,7 @@ var frontLight = new THREE.SpotLight( 0xffeeaa);
 //////////////////
 ////  Ambient Light
 /////////////////
-var ambientLight = new THREE.AmbientLight(0x222222);
+var ambientLight = new THREE.AmbientLight(0xcccccc);
     scene.add(ambientLight);
 
    

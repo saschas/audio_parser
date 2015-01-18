@@ -1,13 +1,19 @@
-var $player_src = $("#player").get(0);
+
 function render() {
   stats.begin();
+  $player_info.currentTime = $player_src.currentTime;
+		
+  $timeline.height(calculateTimeline($player_info));
 	  $loop = requestAnimationFrame( render ); 
-	  controls.update();
+		
+		controls.update(1);
 
-	  if(!$player_src.paused){
+	  if(!$player_src.paused && userOpts.play){
 	  	TWEEN.update();
 	  }
 	  renderer.render(scene, camera);
+
+
   stats.end();
   return $loop;
 }
