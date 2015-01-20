@@ -6,7 +6,7 @@ var audioData = {}
 
 $.ajax({
   dataType: "json",
-  url: "js/audioData_4.json",
+  url: "js/audioData_3.json",
   success: function(data){
 
 	userOpts.ready = true;

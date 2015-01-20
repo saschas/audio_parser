@@ -10,6 +10,7 @@ var update	= function(){
 	});
 
 
+	terrain.position.z += 1;
 	
 }
 

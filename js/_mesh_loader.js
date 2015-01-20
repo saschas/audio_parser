@@ -1,6 +1,6 @@
 // instantiate a loader
 var loader = new THREE.JSONLoader();
-
+/*
 // load hirsch
 loader.load(
 	// resource URL
@@ -44,3 +44,5 @@ loader.load(
 		scene.add( haus );
 	}
 );
+
+*/

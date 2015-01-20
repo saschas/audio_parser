@@ -5,7 +5,7 @@ var spotLight = new THREE.SpotLight( 0xeeeeee);
 
     spotLight.position.set( 50, 200, 50 );
 
-    spotLight.intensity = 2;
+    spotLight.intensity = .5;
     spotLight.castShadow = true;
 
     spotLight.target.position.set(0, 0, 0 );

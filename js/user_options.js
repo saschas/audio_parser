@@ -107,7 +107,7 @@ var userOpts	= {
   delay		: 200,
   easing		: 'Elastic.EaseInOut',
   camera : {
-    x : 100,
+    x : 0,
     y : 20,
     z : 50,
     target : {

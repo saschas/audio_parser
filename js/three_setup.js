@@ -13,7 +13,7 @@
   
     // revolutions per second
     var scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2( 0x000000, 0.005 );
+        // scene.fog = new THREE.FogExp2( 0x000000, 0.005 );
 //////////////////////////////////////////
     //   Camera
 //////////////////////////////////////////

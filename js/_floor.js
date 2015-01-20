@@ -7,7 +7,7 @@ var plane_options = {
 	height : window.innerHeight,
 	position : {
 		x : 0,
-		y : -.25,
+		y : .15,
 		z : 0
 	}
 }
